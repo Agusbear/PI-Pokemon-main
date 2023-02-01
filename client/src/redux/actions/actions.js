@@ -11,13 +11,13 @@ export const FILTER_POKEMON = "FILTER_POKEMON";
 
 export const getAllPokemon = () => async (dispatch) => {
   return axios
-    .get("http://localhost:3001/pokemons")
+    .get(`${process.env.REACT_APP_API_DOMAIN}pokemons`)
     .then((res) => dispatch({ type: GET_ALL_POKEMON, payload: res.data }));
 };
 
 export const getPokemonDetailName = (name) => async (dispatch) => {
   return axios
-    .get("http://localhost:3001/pokemons/", {
+    .get(`${process.env.REACT_APP_API_DOMAIN}pokemons/`, {
       params: { name: name },
     })
     .then((res) => {
@@ -30,7 +30,7 @@ export const getPokemonDetailName = (name) => async (dispatch) => {
 
 export const getPokemonDetailId = (id) => async (dispatch) => {
   return axios
-    .get(`http://localhost:3001/pokemons/${id}`)
+    .get(`${process.env.REACT_APP_API_DOMAIN}pokemons/${id}`)
     .then((res) =>
       dispatch({ type: GET_POKEMON_DETAIL_ID, payload: res.data })
     );
@@ -38,13 +38,13 @@ export const getPokemonDetailId = (id) => async (dispatch) => {
 
 export const getTypes = () => async (dispatch) => {
   return axios
-    .get(`http://localhost:3001/types`)
+    .get(`${process.env.REACT_APP_API_DOMAIN}types`)
     .then((res) => dispatch({ type: GET_TYPES, payload: res.data }));
 };
 
 export const createPokemon = (pokemon) => async (dispatch) => {
   return await axios
-    .post("http://localhost:3001/pokemons", pokemon)
+    .post(`${process.env.REACT_APP_API_DOMAIN}pokemons`, pokemon)
     .then((res) => {
       console.log(res.data);
       dispatch({ type: CREATE_POKEMON, payload: res.data }).catch((err) => {
