@@ -47,9 +47,7 @@ export const createPokemon = (pokemon) => async (dispatch) => {
     .post(`${process.env.REACT_APP_API_DOMAIN}pokemons`, pokemon)
     .then((res) => {
       console.log(res.data);
-      dispatch({ type: CREATE_POKEMON, payload: res.data }).catch((err) => {
-        console.log(err);
-      });
+      dispatch({ type: CREATE_POKEMON, payload: res.data });
     });
 };
 
