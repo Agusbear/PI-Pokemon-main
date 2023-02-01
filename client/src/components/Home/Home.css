@@ -1,0 +1,9 @@
+.enterBtn {
+  font-size: 2rem;
+  background: rgb(56 56 56 / 19%);
+  color: #808080;
+  border: 1px solid #575756;
+  border-radius: 10px;
+  padding: 10px 10px;
+  margin-top: 300px;
+}

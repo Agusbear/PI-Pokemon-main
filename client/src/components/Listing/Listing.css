@@ -1,0 +1,96 @@
+.cardContainer {
+    padding: 20px;
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.listingContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.paginationContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.item {
+    align-items: center;
+    color: #FFF;
+    cursor: pointer;
+    display: flex;
+    font-size: 14px;
+    height: 40px;
+    justify-content: center;
+    width: 40px;
+  }
+  
+  .disabled-page {
+    color: #808e9b;
+  }
+  
+  .active {
+    border: solid 1px #808e9b;
+    border-radius: 40px;
+    color: #808e9b;
+  }
+  
+  
+  .next {
+    border-left: solid 1px #808e9b;
+    font-size: 50px;
+    height: 60px;
+    position: absolute;
+    right: 0;
+    width: 150px;
+  }
+  
+  .pagination {
+    align-items: center;
+    background-color: rgba(56, 56, 56, 0.722);
+    display: flex;
+    flex-direction: row;
+    height: 60px;
+    justify-content: center;
+    list-style-type: none;
+    position: relative;
+    width: 1000px;
+    border-radius: 25px;
+  }
+  
+  .pagination-page {
+    font-weight: 700;
+  }
+  
+  .previous {
+    border-right: solid 1px #808e9b;
+    font-size: 50px;
+    height: 60px;
+    left: 0;
+    position: absolute;
+    width: 150px;
+
+    
+  }
+
+  .arrow{
+    width: 100%;
+  }
+
+  .loader {
+    margin-left: 200px;
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

@@ -1,0 +1,40 @@
+.card {
+  padding: 15px 25px;
+  width: 25%;
+}
+
+.cardInner {
+  border-radius: 25px;
+  padding: 35px 20px;
+  min-width: 225px;
+  min-height: 315px;
+  color: white;
+  background-color: rgba(56, 56, 56, 0.722);
+}
+
+.pokeImage {
+  width: 150px;
+}
+
+.shinyToggle {
+  position: absolute;
+
+}
+
+@media screen and (max-width: 1024px) {
+  .card {
+    width: 33%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 568px) {
+  .card {
+    width: 100%;
+  }
+}
