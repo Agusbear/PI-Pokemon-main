@@ -3,7 +3,6 @@ import "./Create.css";
 import { useDispatch, useSelector } from "react-redux";
 import * as actions from "../../redux/actions/actions";
 
-
 export default function Create() {
   const dispatch = useDispatch();
   const types = useSelector((store) => store.types);
@@ -112,7 +111,10 @@ export default function Create() {
         })
       )
         .then((res) => console.log(res))
-        .catch((err) => alert(err.response.data[0].message));
+        .catch((err) => {
+          console.log(err);
+          alert(err.response.data[0]?.message);
+        });
     }
   };
 
