@@ -12,21 +12,39 @@ const Listing = () => {
   const [currentItems, setCurrentItems] = useState([]);
   const [pageNumber, setPageNumber] = useState(0);
   const [loading, setLoading] = useState(false);
+  const itemsPerPage = 12;
 
   useEffect(() => {
     dispatch(actions.getAllPokemon());
     dispatch(actions.getTypes());
     if (pokemon.length === 0) {
       setLoading(true);
-    } else setLoading(false)
+    } else setLoading(false);
 
-    setCurrentItems(pokemon.slice(pageNumber * 12, (pageNumber + 1) * 12));
+    setCurrentItems(
+      pokemon.slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
+    );
   }, [pokemon]);
 
-  const paginate = (pageNumber) => {
-    setPageNumber(pageNumber);
-    setCurrentItems(pokemon.slice(pageNumber * 12, (pageNumber + 1) * 12));
-    setPageNumber(0);
+  const paginate = (paginateTo) => {
+    setPageNumber(paginateTo);
+    setCurrentItems(
+      pokemon.slice(paginateTo * itemsPerPage, (paginateTo + 1) * itemsPerPage)
+    );
+  };
+
+  const paginateHandler = (action) => {
+    if (action === "next") {
+      if (pageNumber === Math.floor(pokemon.length / itemsPerPage)) {
+        return;
+      } else paginate(pageNumber + 1);
+    } else if (action === "previous") {
+      if (pageNumber === 0) {
+        return;
+      } else paginate(pageNumber - 1);
+    } else {
+      paginate(action);
+    }
   };
 
   return (
@@ -45,7 +63,7 @@ const Listing = () => {
         ))}
       </div>
       {pokemon.length !== 0 && (
-        <Paginate arr={pokemon} paginate={paginate} itemsPerPage={12} />
+        <Paginate arr={pokemon} paginate={paginateHandler} itemsPerPage={12} />
       )}
     </div>
   );

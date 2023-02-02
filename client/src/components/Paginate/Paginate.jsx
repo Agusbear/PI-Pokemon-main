@@ -12,9 +12,11 @@ const Paginate = ({ arr, paginate, itemsPerPage }) => {
     <div className="paginateContainer">
       <div className="pageSelector">
         <ul>
+          <button onClick={() => paginate("previous")}>←</button>
           {pageCount.map((el) => {
             return <button onClick={() => paginate(el)}>{el + 1}</button>;
           })}
+          <button onClick={() => paginate("next")}>→</button>
         </ul>
       </div>
       <div className="nextArrow"></div>
