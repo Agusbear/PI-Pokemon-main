@@ -12,7 +12,7 @@ export default function Detail() {
   const [shiny, setShiny] = useState(false);
 
   useEffect(() => {
-    dispatch(actions.getPokemonDetailName(name)).then(setLoading(false));
+    dispatch(actions.getPokemonDetailName(name)).then(() => setLoading(false));
     return () => dispatch(actions.cleanupPokemonDetail()); //cleanup Detail
   }, [name]);
 
