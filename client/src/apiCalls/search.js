@@ -4,7 +4,7 @@ export default async function apiSearch(name) {
   var data = {};
   await axios
     .get(`${process.env.REACT_APP_API_DOMAIN}pokemons/`, {
-      params: { name: name },
+      params: { name: name.toLowerCase().replace(" ", "-") },
     })
     .then((response) => {
       data = response;

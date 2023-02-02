@@ -110,7 +110,7 @@ export default function Create() {
           image: inputs.image,
         })
       )
-        .then((res) => console.log(res))
+        .then((res) => alert('Pokemon creado!'))
         .catch((err) => {
           console.log(err);
           alert(err.response.data[0]?.message);
