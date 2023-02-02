@@ -108,9 +108,10 @@ export default function Create() {
           weight: inputs.weight,
           types: selectedArray,
           image: inputs.image,
+          forceUpdate: true,
         })
       )
-        .then((res) => alert('Pokemon creado!'))
+        .then((res) => alert("Pokemon creado!"))
         .catch((err) => {
           console.log(err);
           alert(err.response.data[0]?.message);
