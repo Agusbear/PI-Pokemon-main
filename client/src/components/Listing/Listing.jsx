@@ -21,9 +21,7 @@ const Listing = () => {
       setLoading(true);
     } else setLoading(false);
 
-    setCurrentItems(
-      pokemon.slice(pageNumber * itemsPerPage, (pageNumber + 1) * itemsPerPage)
-    );
+    setCurrentItems(pokemon.slice(0, itemsPerPage));
   }, [pokemon]);
 
   const paginate = (paginateTo) => {
