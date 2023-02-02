@@ -47,15 +47,59 @@ export default function Create() {
       errors.name = "Se requiere un nombre";
     } else {
       if (
-        inputs.id < 10000 ||
+        inputs.id < 20000 ||
         inputs.id > 100000 ||
         inputs.id < 0 ||
         inputs.id % 1 !== 0
       ) {
-        errors.id = "Debe ser un numero entero positivo entre 10000 y 100000";
+        errors.id = "Debe ser un numero entero entre 20000 y 100000";
       } else {
-        if (inputs.image === "") {
-          errors.image = "Debe seleccionar una imagen";
+        if (inputs.hp > 500 || inputs.hp < 0 || inputs.hp % 1 !== 0) {
+          errors.hp = "Debe ser un numero entero entre 0 y 500";
+        } else {
+          if (
+            inputs.attack > 200 ||
+            inputs.attack < 0 ||
+            inputs.attack % 1 !== 0
+          ) {
+            errors.attack = "Debe ser un numero entero entre 0 y 200";
+          } else {
+            if (
+              inputs.defense > 200 ||
+              inputs.defense < 0 ||
+              inputs.defense % 1 !== 0
+            ) {
+              errors.defense = "Debe ser un numero entero entre 0 y 200";
+            } else {
+              if (
+                inputs.speed > 200 ||
+                inputs.speed < 0 ||
+                inputs.speed % 1 !== 0
+              ) {
+                errors.speed = "Debe ser un numero entero entre 0 y 200";
+              } else {
+                if (
+                  inputs.height > 1000 ||
+                  inputs.height < 0 ||
+                  inputs.height % 1 !== 0
+                ) {
+                  errors.height = "Debe ser un numero entero entre 0 y 1000";
+                } else {
+                  if (
+                    inputs.weight > 1000 ||
+                    inputs.weight < 0 ||
+                    inputs.weight % 1 !== 0
+                  ) {
+                    errors.weight = "Debe ser un numero entero entre 0 y 1000";
+                  } else {
+                    if (inputs.image === "") {
+                      errors.image = "Debe seleccionar una imagen";
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -147,7 +191,7 @@ export default function Create() {
           value={inputs.id}
           className={errors.id && "warning"}
           min={10000}
-          placeholder={"Debe ser mayor a 10000"}
+          placeholder={"Debe ser mayor a 20000"}
         />
 
         {errors.hp ? <small className="danger">{errors.hp}</small> : null}
@@ -159,7 +203,7 @@ export default function Create() {
           onChange={handleChange}
           value={inputs.hp}
           className={errors.hp && "warning"}
-          placeholder={"Debe ser entre 0 y 100"}
+          placeholder={"Debe ser entre 0 y 500"}
         />
 
         {errors.attack ? (
@@ -173,7 +217,7 @@ export default function Create() {
           onChange={handleChange}
           value={inputs.attack}
           className={errors.attack && "warning"}
-          placeholder={"Debe ser entre 0 y 100"}
+          placeholder={"Debe ser entre 0 y 200"}
         />
 
         {errors.defense ? (
@@ -187,7 +231,7 @@ export default function Create() {
           onChange={handleChange}
           value={inputs.defense}
           className={errors.defense && "warning"}
-          placeholder={"Debe ser entre 0 y 100"}
+          placeholder={"Debe ser entre 0 y 200"}
         />
 
         {errors.speed ? <small className="danger">{errors.speed}</small> : null}
@@ -199,7 +243,7 @@ export default function Create() {
           onChange={handleChange}
           value={inputs.speed}
           className={errors.speed && "warning"}
-          placeholder={"Debe ser entre 0 y 100"}
+          placeholder={"Debe ser entre 0 y 200"}
         />
 
         {errors.height ? (
@@ -213,7 +257,7 @@ export default function Create() {
           onChange={handleChange}
           value={inputs.height}
           className={errors.height && "warning"}
-          placeholder={"Debe ser entre 0 y 100"}
+          placeholder={"Debe ser entre 0 y 1000"}
         />
 
         {errors.weight ? (
@@ -227,7 +271,7 @@ export default function Create() {
           onChange={handleChange}
           value={inputs.weight}
           className={errors.weight && "warning"}
-          placeholder={"Debe ser entre 0 y 100"}
+          placeholder={"Debe ser entre 0 y 1000"}
         />
 
         {errors.image ? <small className="danger">{errors.image}</small> : null}

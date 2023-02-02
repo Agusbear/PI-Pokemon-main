@@ -51,7 +51,6 @@ router.get("/", async (req, res) => {
             typesArray.push({ type: { name: type.name } });
           });
 
-
           dataResponse.name = response.name;
           dataResponse.image = response.image;
           dataResponse.types = typesArray;
@@ -88,7 +87,7 @@ router.get("/", async (req, res) => {
     await axios
       .get(
         "https://pokeapi.co/api/v2/pokemon?limit=40&offset=" +
-          Math.floor(Math.random() * 1139)
+          Math.floor(Math.random() * 900)
       ) //returns list of pokemon
       .then(async (response) => {
         const pokeList = response.data.results;
@@ -114,10 +113,7 @@ router.get("/", async (req, res) => {
         await Pokemon.findAll({ include: Type }).then((dbPokemon) => {
           for (const pokemon of dbPokemon) {
             const typesArray = [];
-;
-
             pokemon.types.forEach((type) => {
-
               typesArray.push({ type: { name: type.name } });
             });
 

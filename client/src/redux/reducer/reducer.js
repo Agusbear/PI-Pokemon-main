@@ -70,9 +70,7 @@ const rootReducer = (state = initialState, { type, payload }) => {
             filteredPokemon.reverse();
           }
         } else if (orderOptions === "attack") {
-          filteredPokemon.sort((a, b) => {
-            return a.attack - b.attack;
-          });
+          filteredPokemon.sort((a, b) => a.attack - b.attack);
           if (orderDirection === "descending") {
             filteredPokemon.reverse();
           }

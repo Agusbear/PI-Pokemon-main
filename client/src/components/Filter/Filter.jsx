@@ -15,15 +15,15 @@ export default function Filter() {
   const [filterOptions, setFilterOptions] = useState({
     whichPokemon: "all",
     typePokemon: true,
-    orderPokemon: false,
+    orderPokemon: true,
     orderOptions: "id",
-    orderDirection: "descending",
+    orderDirection: "ascending",
     types: [],
   });
 
   const handleSubmit = () => {
     dispatch(actions.filterPokemon({ ...filterOptions, types: selectedArray }));
-  }
+  };
 
   const handleCheckboxChange = (position, value) => {
     const temp = selectedTypesBool.map((item, index) =>
@@ -65,7 +65,7 @@ export default function Filter() {
           <label htmlFor="orderPokemon">Orden</label>
           <select
             onChange={handleSelectionChange}
-            name="orderPokemon"
+            name="orderOptions"
             className="dropdown"
           >
             <option value="id">Por ID</option>
@@ -85,7 +85,11 @@ export default function Filter() {
           </select>
         </div>
 
-        <div className="filterSubmitContainer" ><button className="filterButton" onClick={handleSubmit} >Filtrar</button></div>
+        <div className="filterSubmitContainer">
+          <button className="filterButton" onClick={handleSubmit}>
+            Filtrar
+          </button>
+        </div>
       </div>
 
       <div className="typesContainer">
