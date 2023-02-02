@@ -111,7 +111,10 @@ export default function Create() {
           forceUpdate: true,
         })
       )
-        .then((res) => alert("Pokemon creado!"))
+        .then((res) => {
+          dispatch(actions.getAllPokemon());
+          alert("Pokemon creado!");
+        })
         .catch((err) => {
           console.log(err);
           alert(err.response.data[0]?.message);
