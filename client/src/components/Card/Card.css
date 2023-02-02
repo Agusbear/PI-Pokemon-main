@@ -14,11 +14,11 @@
 
 .pokeImage {
   width: 150px;
+  height: 150px;
 }
 
 .shinyToggle {
   position: absolute;
-
 }
 
 @media screen and (max-width: 1024px) {
