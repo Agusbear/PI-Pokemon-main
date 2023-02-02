@@ -9,9 +9,8 @@ const initialState = {
 
 const rootReducer = (state = initialState, { type, payload }) => {
   switch (type) {
-
     case actions.GET_ALL_POKEMON:
-      if (state.pokemon.length !== 0) {
+      if (state.pokemon.length === payload.length) {
         return { ...state };
       } else
         return {
