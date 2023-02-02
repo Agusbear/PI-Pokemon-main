@@ -3,12 +3,11 @@
   height: 100vh;
 }
 
-html,
-body,
 input,
 textarea,
 select,
 button,
 dialog {
   background-color: #181a1b;
+  color: white;
 }
