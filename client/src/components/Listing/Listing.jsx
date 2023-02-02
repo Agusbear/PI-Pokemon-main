@@ -20,7 +20,7 @@ const Listing = () => {
     if (pokemon.length === 0) {
       setLoading(true);
     } else setLoading(false);
-
+    setPageNumber(0);
     setCurrentItems(pokemon.slice(0, itemsPerPage));
   }, [pokemon]);
 
